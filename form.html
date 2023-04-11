@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario de Contacto</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+			color: #555;
+			margin-top: 50px;
+		}
+
+		form {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			max-width: 500px;
+			margin: 0 auto;
+		}
+
+		label {
+			display: block;
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: #555;
+		}
+
+		input[type="text"], input[type="email"], textarea {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			margin-bottom: 20px;
+		}
+
+		input[type="submit"] {
+			background-color: #555;
+			color: #fff;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			float: right;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+	<h1>Formulario de Contacto</h1>
+	<form id="contact-form">
+		<label for="name">Nombre:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="email">Correo electrónico:</label>
+		<input type="email" id="email" name="email" required>
+
+		<label for="subject">Asunto:</label>
+		<input type="text" id="subject" name="subject" required>
+
+		<label for="message">Mensaje:</label>
+		<textarea id="message" name="message" required></textarea>
+
+		<input type="submit" value="Enviar">
+	</form>
+
+	<script>
+		document.getElementById("contact-form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var subject = document.getElementById("subject").value;
+			var message = document.getElementById("message").value;
+
+			var link = "zepcion@gmail.com"
+				     + "?subject=" + encodeURIComponent(subject)
+				     + "&body=" + encodeURIComponent("Nombre: " + name + "\n" + "Correo electrónico: " + email + "\n" + "Mensaje: " + message);
+
+			window.location.href = link;
+		});
+	</script>
+</body>
+</html>
